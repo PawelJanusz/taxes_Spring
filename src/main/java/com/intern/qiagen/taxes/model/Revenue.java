@@ -13,9 +13,7 @@ public class Revenue {
     private Long id;
 
     private Double grossRevenue;
-    private Double ZUS = 1380.18;
-    Double PIT;
-    Double netRevenue;
+    private final Double ZUS = 1380.18;
 
     public Double getGrossRevenue() {
         return grossRevenue;
@@ -26,11 +24,11 @@ public class Revenue {
     }
 
     public Double getPIT() {
-        return 0.19 * grossRevenue;
+        return 0.19 * getGrossRevenue();
     }
 
     public Double getNetRevenue() {
-        return grossRevenue - getZUS() - getPIT();
+        return getGrossRevenue() - getZUS() - getPIT();
     }
 
     public Long getId() {
@@ -39,18 +37,6 @@ public class Revenue {
 
     public void setGrossRevenue(Double grossRevenue) {
         this.grossRevenue = grossRevenue;
-    }
-
-    public void setZUS(Double ZUS) {
-        this.ZUS = ZUS;
-    }
-
-    public void setPIT(Double PIT) {
-        this.PIT = PIT;
-    }
-
-    public void setNetRevenue(Double netRevenue) {
-        this.netRevenue = netRevenue;
     }
 
     public void setId(Long id) {
