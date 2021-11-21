@@ -30,6 +30,9 @@ public class TaxesController {
 
     @PostMapping("/addItems")
     public Revenue addRevenueItem(@RequestBody Revenue revenue){
+        if (revenue.getNetRevenue() < 10000){
+            throw new IllegalArgumentException("Gross revenue should be greater than 10 tys.");
+        }
            return taxesService.addItem(revenue);
     }
 }

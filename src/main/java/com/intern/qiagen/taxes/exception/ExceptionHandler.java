@@ -10,6 +10,6 @@ public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler(value = IllegalArgumentException.class)
     public ResponseEntity<Object> exception(IllegalArgumentException exception){
-        return new ResponseEntity<>("Wrong gross revenue", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Wrong gross revenue. Revenue should be greater than 10 tys.", HttpStatus.BAD_REQUEST);
     }
 }
