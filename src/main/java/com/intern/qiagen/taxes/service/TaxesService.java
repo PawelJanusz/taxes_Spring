@@ -5,18 +5,15 @@ import com.intern.qiagen.taxes.repository.TaxesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class TaxesService {
 
-    private final TaxesRepo taxesRepo;
-
     @Autowired
-    public TaxesService(TaxesRepo taxesRepo) {
-        this.taxesRepo = taxesRepo;
-    }
+    private TaxesRepo taxesRepo;
 
     public List<Revenue> getItems(){
         if (taxesRepo.findAll().size() <= 5) {

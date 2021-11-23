@@ -5,6 +5,7 @@ import com.intern.qiagen.taxes.model.Revenue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("/taxes")
@@ -29,7 +30,7 @@ public class TaxesController {
     }
 
     @PostMapping("/addItems")
-    public Revenue addRevenueItem(@RequestBody Revenue revenue){
+    public Revenue addRevenueItem(@Valid @RequestBody Revenue revenue){
         if (revenue.getNetRevenue() < 10000){
             throw new IllegalArgumentException("Gross revenue should be greater than 10 tys.");
         }
